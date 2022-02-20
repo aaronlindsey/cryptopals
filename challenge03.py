@@ -2,8 +2,7 @@
 
 import unittest
 
-class Test(unittest.TestCase):
-
+class TestChallenge03(unittest.TestCase):
     def test(self):
         pass
 
