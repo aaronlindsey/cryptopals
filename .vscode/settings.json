@@ -22,4 +22,5 @@
         "ciphertexts",
         "usec"
     ],
+    "files.trimTrailingWhitespace": false,
 }
