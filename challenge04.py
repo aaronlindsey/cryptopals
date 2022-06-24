@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
+"""
+Solution for https://cryptopals.com/sets/1/challenges/4 by Aaron Lindsey.
+"""
+
 import unittest
-from challenge03 import crack_single_char_XOR, score_single_char_XOR
+from challenge03 import crack_single_char_xor, score_plaintext
 
-
-input = '''0e3647e8592d35514a081243582536ed3de6734059001e3f535ce6271032
+INPUT = '''0e3647e8592d35514a081243582536ed3de6734059001e3f535ce6271032
 334b041de124f73c18011a50e608097ac308ecee501337ec3e100854201d
 40e127f51c10031d0133590b1e490f3514e05a54143d08222c2a4071e351
 45440b171d5c1b21342e021c3a0eee7373215c4024f0eb733cf006e2040c
@@ -332,27 +335,23 @@ e03555453d1e31775f37331823164c341c09e310463438481019fb0b12fa
 4c071a57e9356ee415103c5c53e254063f2019340969e30a2e381d5b2555
 32042f46431d2c44607934ed180c1028136a5f2b26092e3b2c4e2930585a'''
 
-
-def detect_single_char_XOR(ciphertexts: list) -> bytes:
+def detect_single_char_xor(ciphertexts: list) -> bytes:
     max_score = -1
 
     for ciphertext in ciphertexts:
-        plaintext = crack_single_char_XOR(ciphertext)
-        plaintext_score = score_single_char_XOR(plaintext)
+        plaintext = crack_single_char_xor(ciphertext)
+        plaintext_score = score_plaintext(plaintext)
         if max_score < plaintext_score:
             max_score = plaintext_score
             result = ciphertext
 
     return result
 
-
 class TestChallenge04(unittest.TestCase):
-    def test(self):
-        ciphertexts = [bytes.fromhex(line) for line in input.splitlines()]
-
-        detected = detect_single_char_XOR(ciphertexts)
-        self.assertEqual(detected, bytes.fromhex('7b5a4215415d544115415d5015455447414c155c46155f4058455c5b523f'))
-
+    def test_detect_single_char_xor(self):
+        ciphertexts = [bytes.fromhex(line.strip()) for line in INPUT.splitlines()]
+        expected = bytes.fromhex('7b5a4215415d544115415d5015455447414c155c46155f4058455c5b523f')
+        self.assertEqual(detect_single_char_xor(ciphertexts), expected)
 
 if __name__ == '__main__':
     unittest.main()

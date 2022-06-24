@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Solution for https://cryptopals.com/sets/1/challenges/1 by Aaron Lindsey.
+"""
+
 import base64
 import unittest
 

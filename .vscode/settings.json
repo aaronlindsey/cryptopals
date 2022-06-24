@@ -7,5 +7,18 @@
         "challenge*.py"
     ],
     "python.testing.pytestEnabled": false,
-    "python.testing.unittestEnabled": true
+    "python.testing.unittestEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--good-names", "a,b,c,x,y,z,i,j,k",
+        "--max-line-length", "120",
+        "--disable", "C0115",
+        "--disable", "C0116"
+    ],
+    "cSpell.words": [
+        "ciphertext",
+        "ciphertexts",
+        "usec"
+    ],
 }
