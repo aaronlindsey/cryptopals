@@ -17,6 +17,7 @@
         "--disable", "C0116"
     ],
     "cSpell.words": [
+        "cryptopals",
         "ciphertext",
         "ciphertexts",
         "usec"
